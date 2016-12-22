@@ -1,0 +1,11 @@
+Log4j:[2016-04-04 18:45:01]  INFO DruidDataSource:638 - {dataSource-1} inited
+Log4j:[2016-04-04 18:46:13]  INFO DruidDataSource:638 - {dataSource-1} inited
+Log4j:[2016-04-04 18:52:14]  INFO DruidDataSource:638 - {dataSource-1} inited
+Log4j:[2016-04-04 19:04:32]  INFO DruidDataSource:638 - {dataSource-1} inited
+Log4j:[2016-04-04 19:20:41]  INFO DruidDataSource:638 - {dataSource-1} inited
+Log4j:[2016-04-04 19:21:52]  INFO DruidDataSource:638 - {dataSource-1} inited
+Log4j:[2016-04-04 20:24:00]  WARN PageNotFound:1110 - No mapping found for HTTP request with URI [/Xel/login/userLoginr] in DispatcherServlet with name 'dispatcherServlet'
+Log4j:[2016-04-04 20:25:21]  INFO DruidDataSource:638 - {dataSource-1} inited
+Log4j:[2016-04-04 20:26:57]  INFO DruidDataSource:638 - {dataSource-1} inited
+Log4j:[2016-04-04 20:37:54]  INFO DruidDataSource:638 - {dataSource-1} inited
+Log4j:[2016-04-04 20:40:23]  INFO DruidDataSource:638 - {dataSource-1} inited

@@ -1,0 +1,141 @@
+body {
+	font-family: 'Microsoft Yahei', '微软雅黑', '宋体', \5b8b\4f53, Tahoma, Arial,
+		Helvetica, STHeiti;
+	padding: 0;
+	margin: 0;
+}
+
+.div_time {
+	background-color: #337ab7;
+	height: 111px;
+	width: 100% border:2px solid #CCCCCC;
+	position: relative;
+}
+
+#time_year {
+	padding: 25px;
+	font-size: 20px;
+	color: #fff;
+}
+
+#time_day {
+	color: #fff;
+	position: absolute;
+	right: 50px;
+	font-size: 30px;
+	bottom: 20px;
+}
+
+.table1 {
+	height: 40px;
+	text-align: right;
+}
+
+.table2 {
+	height: 40px;
+	text-align: left;
+}
+
+.checkbox {
+	text-align: center;
+	padding: 20px;
+	width: 100%;
+	float: left;
+	
+}
+
+.checkbox label {
+	margin-left: 30px;
+}
+
+/* checkbox居中 */
+.checkbox label input{
+	margin-top:10px;
+}
+
+ 
+.publicity {
+	text-align: left;
+	padding: 20px;
+	width: 100%;
+	margin-bottom: -10px;
+	float: left;
+}
+
+.publicity label {
+	margin-right: 25px;
+}
+
+.a_count {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+/* table布局 */
+.table_count {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+
+.commit {
+	margin-bottom: 70px;
+}
+
+.title {
+	color: #337AB7;
+}
+
+th, td {
+	text-align: center;
+}
+
+/* 导航栏的字体设置 */
+.navbar-brand {
+	color: #FF910C;
+	font-size: 20px;
+}
+
+#bar_menu li a {
+	color: #fff;
+	font-size: 20px;
+}
+
+.col-md-6 {
+	padding: 0px;
+}
+
+.table_t {
+	margin-top: 20px;
+	margin-left: -110px;
+}
+
+/* 文本的height */
+label {
+	line-height: 34px;
+}
+
+/* 表格头部背景和字体的颜色 */
+.table-thead-bg-font {
+	background-color: #337ab7;
+	color: #fff
+}
+
+/* 底部地址栏样式设置 */
+.address-bottom {
+	text-align: center;
+	margin-top: 50px;
+}
+
+/* 模态框显示的层级 */
+.model-view-grade {
+	position: absolute;
+	z-index: 1;
+}
+/* table is null font style */
+.list_empty{
+	text-align: center;
+	color: red;
+}
+
+

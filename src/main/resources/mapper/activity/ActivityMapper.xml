@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.platform.mapper.ActivityMapper">
+
+	<!-- 按照id来查询  -->
+	<select id="findById" parameterType="String" resultType="com.platform.entity.Activity">
+		SELECT 
+				*
+		FROM 
+				activity 
+		WHERE 
+				id= #{id}
+	</select>
+	
+	
+	<!-- 查询没有审核的所有活动 -->
+	<!-- <select id="findAll" parameterType="String" resultType="com.platform.entity.Activity">
+		SELECT 
+				*
+		FROM 
+				activity 
+		WHERE 
+				a_state = 2
+			OR
+				a_state = 3
+			OR
+				a_state = 4 order by a_create_time
+	</select>
+	-->
+	
+	<!-- 查询没有审核的所有活动 -->
+	<select id="findAll" parameterType="String" resultType="com.platform.entity.Activity">
+		SELECT 
+				*
+		FROM 
+				activity 
+		WHERE 
+				a_state = 2 order by a_create_time
+	</select>
+	
+	<!-- 查询公告活动 -->
+	<select id="finNotice" parameterType="String" resultType="com.platform.entity.Activity">
+		SELECT 
+				*
+		FROM 
+				activity 
+		WHERE 
+				a_state = 4 order by a_create_time
+	</select>
+	
+	<!-- 查询说有主管单位不通过的活动 -->
+	<select id="findAllNo" parameterType="String" resultType="com.platform.entity.Activity">
+		SELECT 
+				*
+		FROM 
+				activity 
+		WHERE 
+				a_state = 5 order by a_create_time
+	</select>
+
+
+
+
+	<!-- 查询没有初步审核的所有活动 -->
+	<select id="selectAudit" parameterType="String" resultType="com.platform.entity.Activity">
+		SELECT *
+		FROM activity
+		WHERE
+		unit_id = #{unit_id}
+		AND
+		a_state = 1 order by a_create_time
+	</select>
+	
+	<!-- 查询通过初步审核的所有活动 -->
+	<select id="selectYes" parameterType="String" resultType="com.platform.entity.Activity">
+		SELECT *
+		FROM activity
+		WHERE
+		unit_id = #{unit_id}
+		AND
+		a_state = 2 order by a_create_time
+	</select>
+	
+	<!-- 查询没有初步审核的所有活动 -->
+	<select id="selectNo" parameterType="String" resultType="com.platform.entity.Activity">
+		SELECT *
+		FROM activity
+		WHERE
+		unit_id = #{unit_id}
+		AND
+		a_state = 3 order by a_create_time
+	</select>
+
+
+	<!-- 获取student主页列表 -->
+	<select id="selectActivity" parameterType="String" resultType="com.platform.entity.Activity">
+		SELECT *
+		FROM activity
+		WHERE
+		student_id = #{student_id}
+		order by a_create_time
+	</select>
+	
+	<!-- 获取unit主页列表 -->
+	<select id="selectActivityU" parameterType="String" resultType="com.platform.entity.Activity">
+		SELECT *
+		FROM activity
+		WHERE
+		unit_id = #{unit_id}
+		order by a_create_time
+	</select>
+	
+	
+	<!-- 获取活动公告列表 -->
+	<select id="selectNotice" parameterType="String" resultType="com.platform.entity.Activity">
+		SELECT *
+		FROM activity
+		WHERE
+		student_id = #{student_id}
+		AND
+		a_state = 4 
+		order by a_create_time
+	</select>
+	
+	<!-- 获取活动公告列表 -->
+	<select id="selectNoticeU" parameterType="String" resultType="com.platform.entity.Activity">
+		SELECT *
+		FROM activity
+		WHERE
+		unit_id = #{unit_id}
+		AND
+		a_state = 4 
+		order by a_create_time
+	</select>
+
+
+
+
+	<!-- 添加一个活动 -->
+	<insert id="insert" parameterType="com.platform.entity.Activity" keyProperty="id">
+		INSERT INTO
+		activity
+		(
+			id,student,unit,a_content,a_place,
+			a_person,a_phone,
+			date,time_start,time_end,
+			a_person_number,a_word,a_state,
+			a_create_time,a_propas,
+			student_id,unit_id,
+			w_t1,w_t2,w_t3,w_t4,w_t5
+		)
+		VALUES
+		(
+			#{id},#{student},#{unit},#{a_content},#{a_place},
+			#{a_person},#{a_phone},
+			#{date},#{time_start},#{time_end},
+			#{a_person_number},#{a_word},#{a_state},
+			now(),#{a_propas},#{student_id},
+			#{unit_id},
+			#{w_t1},#{w_t2},#{w_t3},#{w_t4},#{w_t5}
+		)
+	</insert>
+	
+	<!-- 通过id来修改活动信息 -->
+	<update id="update" parameterType="com.platform.entity.Activity">
+		UPDATE activity
+			<set>
+			
+				<if test="student != null and student !='' ">
+				student = #{student},
+				</if>
+				<if test="unit != null and unit !='' ">
+				student = #{student},
+				</if>
+				<if test="a_content != null and a_content !='' ">
+				a_content = #{a_content},
+				</if>
+				<if test="a_place != null and a_place !='' ">
+				a_place = #{a_place},
+				</if>
+				<if test="a_person != null and a_person !='' ">
+				a_person = #{a_person},
+				</if>
+				<if test="a_phone != null and a_phone !='' ">
+				a_phone = #{a_phone},
+				</if>
+				
+				<if test="date != null and date !='' ">
+				date = #{date},
+				</if>
+				<if test="time_start != null and time_start !='' ">
+				time_start = #{time_start},
+				</if>
+				<if test="time_end != null and time_end !='' ">
+				time_end = #{time_end},
+				</if>
+				
+				<if test="a_word != null and a_word !='' ">
+				a_word = #{a_word},
+				</if>
+				<if test="a_person_number != null and a_person_number !='' ">
+				a_person_number = #{a_person_number},
+				</if>
+				<if test="a_state != null and a_state !='' ">
+				a_state = #{a_state},
+				</if>
+				<if test="a_propas != null and a_propas !='' ">
+				a_propas = #{a_propas},
+				</if>
+				
+				<if test="a_comments != null and a_comments !='' ">
+				a_comments = #{a_comments},
+				</if>
+				
+				<if test="w_t1 != null and w_t1 !='' ">
+				w_t1 = #{w_t1},
+				</if>
+				<if test="w_t2 != null and w_t2 !='' ">
+				w_t2 = #{w_t2},
+				</if>
+				<if test="w_t3 != null and w_t3 !='' ">
+				w_t3 = #{w_t3},
+				</if>
+				<if test="w_t4 != null and w_t4 !='' ">
+				w_t4 = #{w_t4},
+				</if>
+				<if test="w_t5 != null and w_t5 !='' ">
+				w_t5 = #{w_t5},
+				</if>
+				
+		
+			</set>
+			
+			WHERE 
+				 id = #{id}	
+</update>
+
+
+</mapper>

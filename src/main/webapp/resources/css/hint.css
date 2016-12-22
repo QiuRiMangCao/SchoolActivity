@@ -1,0 +1,53 @@
+body{
+	font-family: 'Microsoft Yahei', 'Î¢ÈíÑÅºÚ', 'ËÎÌå', \5b8b\4f53, Tahoma, Arial,
+		Helvetica, STHeiti;
+	padding: 0;
+	margin: 0;
+	color: #fff;
+}
+
+.side_box {
+	width: 0;
+	height: 0;
+	position: fixed;
+	left: 50%;
+	rigth: 50%;
+	top: 50%;
+	bottom: 50%
+}
+
+.content_box {
+	width: 600px;
+	height: 220px;
+	margin-left: -300px;
+	margin-top: -110px;
+	background: #337AB7;
+	position: relative;
+}
+
+.icon_box {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	
+}
+
+
+.result{
+	text-align:center;
+	line-height: 220px;
+	font-size: 30px;
+}
+.result_home{
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+}
+.result_home a{
+	color:#fff;
+	text-decoration: none;
+}
+a:HOVER {
+	color:#ce4300;
+}
+

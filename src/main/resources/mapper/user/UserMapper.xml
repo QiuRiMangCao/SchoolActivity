@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.platform.mapper.UserMapper">
+
+	<!-- 按照id来查询  -->
+	<select id="findById" parameterType="String" resultType="com.platform.entity.User">
+		SELECT 
+				*
+		FROM 
+				user 
+		WHERE 
+				id= #{id}
+	</select>
+
+	<!-- 注册一个用户 -->
+	<insert id="addUser" parameterType="com.platform.entity.User"    >
+		INSERT INTO 
+			user
+		(id , username, password , user_state , user_type , create_time ,user_super_id)
+			VALUES
+		(#{id},#{username},#{password},#{user_state},#{user_type},now(),#{user_super_id})
+	</insert>
+	
+	<!-- 更加用户名来查询用户信息  -->
+	<select id="userLogin"  parameterType="String"  resultType="com.platform.entity.User">
+		SELECT * FROM 
+			user
+		WHERE 
+			username = #{username}
+		and 
+			user_state=1
+	</select>
+	
+	<!-- 查询所有主管责任单位的用户信息 -->
+	<select id="selectUnitName"   resultType="com.platform.entity.User">
+		SELECT *
+		FROM user
+		WHERE  
+		user_type=2;
+	</select>
+	
+	<!-- 查询所有校团委的用户信息 -->
+	<select id="selectCommitteeName"   resultType="com.platform.entity.User">
+		SELECT *
+		FROM user
+		WHERE  
+		user_type=3;
+	</select>
+	
+	<!-- 更改用户信息-->
+	<update id="update" parameterType="com.platform.entity.User">
+		UPDATE user
+		<set>
+			
+			<if test="username != null and username !='' ">
+				username = #{username},
+			</if>
+			<if test="password != null and  password !='' " >
+			    password = #{password},
+			</if>
+			
+		</set>
+		WHERE id = #{id}
+	</update>
+	
+	
+	
+</mapper>

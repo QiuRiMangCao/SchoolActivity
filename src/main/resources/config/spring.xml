@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    
+	
+	<!-- 引入jdbc配置文件 ，引入后。 在Spring  的 bean 容器中<property name="url" value="${jdbc.url}" />   就可以z这样使用 -->
+    <context:property-placeholder location="classpath:config/jdbc.properties"/>
+    
+	<!-- 自动扫描controller包下的所有类，讲带有@Service @ Reporsitory @companent @concroler 自动注入到bean里面 -->
+    <context:component-scan base-package="com.platform.service"/>
+
+    
+</beans>
